@@ -1,0 +1,72 @@
+<h1>{{ title1 }}</h1>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Major</td>
+        <td>Std_ID</td>
+    </tr>
+    {{#each student}}
+    <tr>
+        <td>{{Id}}</td>
+        <td>{{Name}}</td>
+        <td>{{Email}}</td>
+        <td>{{Phone}}</td>
+        <td>{{Major}}</td>
+        <td>{{Std_Id}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h1>{{ title2 }}</h1>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Professor</td>
+        <td>Participants</td>
+        <td>Building_ID</td>
+        <td>Room_ID</td>
+    </tr>
+    {{#each lecture}}
+    <tr>
+        <td>{{Id}}</td>
+        <td>{{Name}}</td>
+        <td>{{Professor}}</td>
+        <td>{{Participants}}</td>
+        <td>{{Building_Id}}</td>
+        <td>{{Room_Id}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h1>{{ title3 }}</h1>
+<table>
+    <tr>
+        <td>Std_ID</td>
+        <td>Class_ID</td>
+    </tr>
+    {{#each StudentHasClass}}
+    <form method="post">
+        <tr>
+            <td>{{Std_Id}} 
+                <input type="hidden" name="Std_Id" value="{{Std_Id}}"></input>
+            </td> 
+            <td>{{Class_Id}}</td>
+            <td style="border: none; margin-left: 10px;">
+                <button 
+                style="margin-left: 10px;" 
+                name='delBtn' 
+                type="submit" 
+                value="{{Id}}"
+                formaction="/delete"
+                >
+                삭제
+                </button>
+            </td>
+        </tr> 
+    </form>
+    {{/each}}
+</table>
